@@ -57,32 +57,59 @@
       height: 10px;
       border-radius: 50%;
       background-color: #ffffff;
+      font-size: 20px;
+
       &.step {
         width: 40px;
         height: 40px;
       }
+
       &.active {
         width: 50px;
         height: 50px;
         background-color: #b39e7a;
         color: #ffffff;
+        font-size: 25px;
       }
     }
   }
 
   .question-container {
-    height: 25%;
+    height: 20%;
     margin-top: 50px;
     font-size: 40px;
   }
 
   .answer-container {
-    padding-right: 150px;
+    padding-right: 130px;
     font-size: 25px;
-  }
 
-  .answer-button {
-    display: flex;
-    height: 50%;
+    .answer-button {
+      display: flex;
+      height: 80px;
+
+      label {
+        display: flex;
+        align-items: center;
+
+        &::before {
+          display: block;
+          width: 20px;
+          height: 20px;
+          margin-right: 10px;
+          border-radius: 50%;
+          background-color: #b39e7a;
+          content: "";
+        }
+
+        &:hover::before {
+          background-color: #6f5436;
+        }
+      }
+
+      input {
+        display: none;
+      }
+    }
   }
 }

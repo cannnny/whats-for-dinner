@@ -36,12 +36,7 @@ const Question = () => {
           return (
             <div className="answer-button" key={index}>
               <label>
-                <input
-                  className="visually-hidden"
-                  type="radio"
-                  name="category"
-                  value={element}
-                />
+                <input type="radio" name="category" value={element} />
                 {element}
               </label>
             </div>
