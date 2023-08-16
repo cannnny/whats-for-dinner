@@ -1,9 +1,9 @@
 import React from "react";
 // import Splash from "./components/Splash";
-import Question from "./components/Question";
+import QuestionPage from "./components/QuestionPage";
 
 const App = () => {
-  return <Question />;
+  return <QuestionPage />;
 };
 
 export default App;

@@ -1,13 +1,25 @@
-const Question = () => {
+import React from "react";
+import { useParams } from "react-router-dom";
+
+const QuestionPage = () => {
   // 画面上に質問、画面下にトグルボタン選択肢（=MicroCMSのタグ）
   // ページごとに選択肢を配列として入れておいて渡す？
   // 選択されたものをResultコンポーネントに渡す（ジャンル、食材、気分）
   // 進捗バーをクリックすることで前のページに戻る
   // 読み込むたびにアニメーション
 
-  const category = ["和食", "洋食", "中華", "おまかせ"];
-  const material = ["肉", "魚", "野菜", "米", "パン", "麺", "おまかせ"];
-  const feeling = ["がっつり", "さっぱり"];
+  const questions = [
+    { id: 1, name: "category", content: ["和食", "洋食", "中華", "おまかせ"] },
+    {
+      id: 2,
+      name: "material",
+      content: ["肉", "魚", "野菜", "米", "パン", "麺", "おまかせ"],
+    },
+    { id: 3, name: "feeling", content: ["がっつり", "さっぱり"] },
+  ];
+
+  const { id } = useParams();
+  const pageData = questions.find((element) => element.id === Number(id));
 
   return (
     <div className="container">
@@ -25,14 +37,10 @@ const Question = () => {
         <p>今の気分は？</p>
       </div>
       <div className="answer-container">
-        {/* 1ページ目はcategory、2ページ目はmaterial、3ページ目はfeeling */}
-        {category.map((element, index) => {
+        {pageData.content.map((element, index) => {
           return (
             <div className="answer-button" key={index}>
-              <label>
-                <input type="radio" name="category" value={element} />
-                {element}
-              </label>
+              <button>{element}</button>
             </div>
           );
         })}
@@ -41,4 +49,4 @@ const Question = () => {
   );
 };
 
-export default Question;
+export default QuestionPage;
