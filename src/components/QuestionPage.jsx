@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 const QuestionPage = () => {
   // 画面上に質問、画面下にトグルボタン選択肢（=MicroCMSのタグ）
@@ -20,6 +20,14 @@ const QuestionPage = () => {
 
   const { id } = useParams();
   const pageData = questions.find((element) => element.id === Number(id));
+  const navigate = useNavigate();
+  const onClick = () => {
+    if (pageData.id !== 3) {
+      navigate(`/${Number(id) + 1}`);
+    } else {
+      console.log("Result");
+    }
+  };
 
   return (
     <div className="container">
@@ -40,7 +48,7 @@ const QuestionPage = () => {
         {pageData.content.map((element, index) => {
           return (
             <div className="answer-button" key={index}>
-              <button>{element}</button>
+              <button onClick={onClick}>{element}</button>
             </div>
           );
         })}
