@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import Animation from "./Animation";
 
 const QuestionPage = () => {
   // 画面上に質問、画面下にトグルボタン選択肢（=MicroCMSのタグ）
@@ -30,30 +31,43 @@ const QuestionPage = () => {
   };
 
   return (
-    <div className="container">
-      <div>
-        {/* クラスを付け替える　*/}
-        <ul className="progressbar">
-          <li className="step active">1</li>
-          <li></li>
-          <li className="step">2</li>
-          <li></li>
-          <li className="step">3</li>
-        </ul>
+    <Animation initialAnimation={{ x: "100%" }}>
+      <div className="container">
+        <div>
+          {/* クラスを付け替える　*/}
+          {/* 即時関数以外の方法あり？ */}
+          {(() => {
+            const steps = [];
+            for (let i = 1; i <= 3; i++) {
+              steps.push(
+                <li
+                  className={`step ${i === pageData.id ? "active" : ""}`}
+                  key={i}
+                  onClick={() => {
+                    navigate(`/${i}`);
+                  }}
+                >
+                  {i}
+                </li>
+              );
+            }
+            return <ul className="progressbar">{steps}</ul>;
+          })()}
+        </div>
+        <div className="question-container">
+          <p>今の気分は？</p>
+        </div>
+        <div className="answer-container">
+          {pageData.content.map((element, index) => {
+            return (
+              <div className="answer-button" key={index}>
+                <button onClick={onClick}>{element}</button>
+              </div>
+            );
+          })}
+        </div>
       </div>
-      <div className="question-container">
-        <p>今の気分は？</p>
-      </div>
-      <div className="answer-container">
-        {pageData.content.map((element, index) => {
-          return (
-            <div className="answer-button" key={index}>
-              <button onClick={onClick}>{element}</button>
-            </div>
-          );
-        })}
-      </div>
-    </div>
+    </Animation>
   );
 };
 
