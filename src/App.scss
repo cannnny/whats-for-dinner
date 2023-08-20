@@ -15,6 +15,7 @@
   width: 100vw;
   height: 100vh;
   background-color: #b39e7a;
+  animation: fadeIn 1s forwards;
 
   h1 {
     z-index: 1;
@@ -28,10 +29,19 @@
     width: 50%;
     border-radius: 50%;
   }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 }
 
 // Question
-.container {
+.wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -76,49 +86,88 @@
     }
   }
 
-  .question-container {
+  .top-container {
     height: 20%;
     margin-top: 50px;
     font-size: 40px;
   }
 
-  .answer-container {
+  .bottom-container {
     padding-right: 130px;
     font-size: 25px;
+  }
 
-    .answer-button {
+  .answer-list {
+    display: flex;
+    height: 80px;
+
+    button {
       display: flex;
-      height: 80px;
+      align-items: center;
+      padding: 0;
+      border: none;
+      background-color: transparent;
+      outline: none;
+      cursor: pointer;
 
-      button {
-        display: flex;
-        align-items: center;
-        padding: 0;
-        border: none;
-        background-color: transparent;
-        outline: none;
-        cursor: pointer;
+      appearance: none;
 
-        appearance: none;
-
-        &::before {
-          display: block;
-          width: 20px;
-          height: 20px;
-          margin-right: 10px;
-          border-radius: 50%;
-          background-color: #b39e7a;
-          content: "";
-        }
-
-        &:hover::before {
-          background-color: #6f5436;
-        }
+      &::before {
+        display: block;
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+        border-radius: 50%;
+        background-color: #b39e7a;
+        content: "";
       }
 
-      input {
-        display: none;
+      &:hover::before {
+        background-color: #6f5436;
       }
     }
+
+    input {
+      display: none;
+    }
+  }
+}
+
+// Result
+.result-wrapper {
+  background-image: url("../public/background-r.jpg");
+  li {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+
+    appearance: none;
+
+    &::before {
+      display: block;
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+      border-radius: 50%;
+      background-color: #b39e7a;
+      content: "";
+    }
+  }
+}
+
+.retry-button {
+  position: absolute;
+  top: 90%;
+  left: 70%;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  a {
+    color: #ffffff;
+    text-decoration: none;
   }
 }

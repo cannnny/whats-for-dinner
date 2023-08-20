@@ -26,13 +26,13 @@ const QuestionPage = () => {
     if (pageData.id !== 3) {
       navigate(`/${Number(id) + 1}`);
     } else {
-      console.log("Result");
+      navigate("/result");
     }
   };
 
   return (
     <Animation initialAnimation={{ x: "100%" }}>
-      <div className="container">
+      <div className="wrapper">
         <div>
           {/* クラスを付け替える　*/}
           {/* 即時関数以外の方法あり？ */}
@@ -54,13 +54,13 @@ const QuestionPage = () => {
             return <ul className="progressbar">{steps}</ul>;
           })()}
         </div>
-        <div className="question-container">
+        <div className="top-container">
           <p>今の気分は？</p>
         </div>
-        <div className="answer-container">
+        <div className="bottom-container">
           {pageData.content.map((element, index) => {
             return (
-              <div className="answer-button" key={index}>
+              <div className="answer-list" key={index}>
                 <button onClick={onClick}>{element}</button>
               </div>
             );

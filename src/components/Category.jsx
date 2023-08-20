@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Category = (props) => {
   return props.questions.category.map((element, index) => {
     return (
-      <div className="answer-button" key={index}>
+      <div className="list answer-list" key={index}>
         <label>
           <Link to="/">
             <input type="radio" name="category" value={element} />
