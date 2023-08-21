@@ -13,7 +13,7 @@ const Result = () => {
         </ul>
       </div>
       <button className="retry-button">
-        <Link to="/1">はじめから</Link>
+        <Link to="/1">◀︎はじめから</Link>
       </button>
     </div>
   );
