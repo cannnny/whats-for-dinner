@@ -30,29 +30,28 @@ const QuestionPage = () => {
     }
   };
 
+  const steps = [1, 2, 3];
+
   return (
     <Animation initialAnimation={{ x: "100%" }}>
       <div className="wrapper">
         <div>
-          {/* クラスを付け替える　*/}
-          {/* 即時関数以外の方法あり？ */}
-          {(() => {
-            const steps = [];
-            for (let i = 1; i <= 3; i++) {
-              steps.push(
+          <ul className="progressbar">
+            {/* クラスを付け替える　*/}
+            {steps.map((element, index) => {
+              return (
                 <li
-                  className={`step ${i === pageData.id ? "active" : ""}`}
-                  key={i}
+                  className={`step ${element === pageData.id ? "active" : ""}`}
+                  key={index}
                   onClick={() => {
-                    navigate(`/${i}`);
+                    navigate(`/${element}`);
                   }}
                 >
-                  {i}
+                  {element}
                 </li>
               );
-            }
-            return <ul className="progressbar">{steps}</ul>;
-          })()}
+            })}
+          </ul>
         </div>
         <div className="top-container">
           <p>今の気分は？</p>
