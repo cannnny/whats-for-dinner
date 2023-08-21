@@ -4,7 +4,6 @@ import Animation from "./Animation";
 
 // アプリを開いた時の初期画面
 // useEffect + setTimeout + useNavigate
-// 画像をスムーズに表示させたい
 const Splash = () => {
   const navigate = useNavigate();
 

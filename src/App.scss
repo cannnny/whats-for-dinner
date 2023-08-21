@@ -136,6 +136,7 @@
 // Result
 .result-wrapper {
   background-image: url("../public/background-r.jpg");
+
   li {
     display: flex;
     align-items: center;
@@ -162,12 +163,14 @@
 .retry-button {
   position: absolute;
   top: 90%;
-  left: 70%;
+  left: 60%;
   border: none;
   background-color: transparent;
   cursor: pointer;
+
   a {
     color: #ffffff;
+    font-size: 20px;
     text-decoration: none;
   }
 }
