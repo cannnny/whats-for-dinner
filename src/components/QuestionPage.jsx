@@ -1,9 +1,11 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { useAtom } from "jotai";
 import Animation from "./Animation";
+import { answer } from "./Atoms";
 
 const QuestionPage = () => {
-  // 画面上に質問、画面下にトグルボタン選択肢（=MicroCMSのタグ）
+  // 画面上に質問、画面下にラジオボタン選択肢（=MicroCMSのタグ）
   // ページごとに選択肢を配列として入れておいて渡す？
   // 選択されたものをResultコンポーネントに渡す（ジャンル、食材、気分）
   // 進捗バーをクリックすることで前のページに戻る
@@ -21,8 +23,16 @@ const QuestionPage = () => {
 
   const { id } = useParams();
   const pageData = questions.find((element) => element.id === Number(id));
+
+  const [answerState, setAnswerState] = useAtom(answer);
+
   const navigate = useNavigate();
-  const onClick = () => {
+  const nextPage = (selectedAnswer) => {
+    setAnswerState((prev) => ({
+      ...prev,
+      [`answer${pageData.id}`]: selectedAnswer,
+    }));
+
     if (pageData.id !== 3) {
       navigate(`/${Number(id) + 1}`);
     } else {
@@ -38,16 +48,13 @@ const QuestionPage = () => {
         <div>
           <ul className="progressbar">
             {/* クラスを付け替える　*/}
-            {steps.map((element, index) => {
+            {steps.map((step, index) => {
               return (
                 <li
-                  className={`step ${element === pageData.id ? "active" : ""}`}
+                  className={`step ${step === pageData.id ? "active" : ""}`}
                   key={index}
-                  onClick={() => {
-                    navigate(`/${element}`);
-                  }}
                 >
-                  {element}
+                  {step}
                 </li>
               );
             })}
@@ -57,10 +64,16 @@ const QuestionPage = () => {
           <p>今の気分は？</p>
         </div>
         <div className="bottom-container">
-          {pageData.content.map((element, index) => {
+          {pageData.content.map((select, index) => {
             return (
               <div className="answer-list" key={index}>
-                <button onClick={onClick}>{element}</button>
+                <button
+                  onClick={() => {
+                    nextPage(select);
+                  }}
+                >
+                  {select}
+                </button>
               </div>
             );
           })}
