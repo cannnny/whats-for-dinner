@@ -3,6 +3,11 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useAtom } from "jotai";
 import Animation from "./Animation";
 import { answer } from "./Atoms";
+import { client } from "./Client";
+
+const getData = await client.get({
+  endpoint: "results",
+});
 
 const QuestionPage = () => {
   // 画面上に質問、画面下にラジオボタン選択肢（=MicroCMSのタグ）
@@ -10,15 +15,45 @@ const QuestionPage = () => {
   // 選択されたものをResultコンポーネントに渡す（ジャンル、食材、気分）
   // 進捗バーをクリックすることで前のページに戻る
   // 読み込むたびにアニメーション
+  const data = getData.contents;
+
+  const uniqueCategories = new Set();
+  data.forEach((item) => {
+    if (typeof item.category === "string") {
+      uniqueCategories.add(item.category);
+    } else if (Array.isArray(item.category)) {
+      item.category.map((category) => uniqueCategories.add(category));
+    }
+  });
+
+  const categoryArray = Array.from(uniqueCategories);
+
+  const uniqueMaterials = new Set();
+  data.forEach((item) => {
+    if (typeof item.material === "string") {
+      uniqueMaterials.add(item.material);
+    } else if (Array.isArray(item.material)) {
+      item.material.map((material) => uniqueMaterials.add(material));
+    }
+  });
+
+  const materialArray = Array.from(uniqueMaterials);
+
+  const uniqueFeelings = new Set();
+  data.forEach((item) => {
+    if (typeof item.feeling === "string") {
+      uniqueFeelings.add(item.feeling);
+    } else if (Array.isArray(item.feeling)) {
+      item.feeling.map((feeling) => uniqueFeelings.add(feeling));
+    }
+  });
+
+  const feelingArray = Array.from(uniqueFeelings);
 
   const questions = [
-    { id: 1, name: "category", content: ["和食", "洋食", "中華", "おまかせ"] },
-    {
-      id: 2,
-      name: "material",
-      content: ["肉", "魚", "野菜", "米", "パン", "麺", "おまかせ"],
-    },
-    { id: 3, name: "feeling", content: ["がっつり", "さっぱり"] },
+    { id: 1, content: categoryArray },
+    { id: 2, content: materialArray },
+    { id: 3, content: feelingArray },
   ];
 
   const { id } = useParams();
