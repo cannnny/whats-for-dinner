@@ -98,10 +98,10 @@ const QuestionPage = () => {
         <div className="top-container">
           <p>今の気分は？</p>
         </div>
-        <div className="bottom-container">
+        <div className="answer-list">
           {pageData.content.map((select, index) => {
             return (
-              <div className="answer-list" key={index}>
+              <div className="answer-item" key={index}>
                 <button
                   onClick={() => {
                     nextPage(select);
