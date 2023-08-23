@@ -1,176 +1,182 @@
 @import url("https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap");
 
 * {
-  color: #6f5436;
-  font-family: "Zen Maru Gothic", sans-serif;
+    color: #6f5436;
+    font-family: "Zen Maru Gothic", sans-serif;
 }
 
 // Splash
 .splash {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  transform: translateX(0%);
-  width: 100vw;
-  height: 100vh;
-  background-color: #b39e7a;
-  animation: fadeIn 1s forwards;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transform: translateX(0%);
+    width: 100vw;
+    height: 100vh;
+    background-color: #b39e7a;
+    animation: fadeIn 1s forwards;
 
-  h1 {
-    z-index: 1;
-    color: #ffffff;
-  }
-
-  img {
-    display: block;
-    opacity: 0.6;
-    position: absolute;
-    width: 50%;
-    border-radius: 50%;
-  }
-
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
+    h1 {
+        z-index: 1;
+        color: #ffffff;
     }
-    100% {
-      opacity: 1;
+
+    img {
+        display: block;
+        opacity: .6;
+        position: absolute;
+        width: 50%;
+        border-radius: 50%;
     }
-  }
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
 }
 
 // Question
 .wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  height: 100vh;
-  background-image: url("../public/background.jpg");
-  background-position: center center;
-  background-size: cover;
-
-  .progressbar {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    padding-top: 30px;
+    width: 100%;
+    height: 100vh;
+    background-image: url("../public/background.jpg");
+    background-position: center center;
+    background-size: cover;
 
-    gap: 25px;
-    padding-inline-start: 0;
+    .progressbar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 30px;
 
-    li {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      list-style: none;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background-color: #ffffff;
-      font-size: 20px;
+        gap: 25px;
+        padding-inline-start: 0;
 
-      &.step {
-        width: 40px;
-        height: 40px;
-      }
+        li {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            list-style: none;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #ffffff;
+            font-size: 20px;
 
-      &.active {
-        width: 50px;
-        height: 50px;
-        background-color: #b39e7a;
-        color: #ffffff;
+            &.step {
+                width: 40px;
+                height: 40px;
+            }
+
+            &.active {
+                width: 50px;
+                height: 50px;
+                background-color: #b39e7a;
+                color: #ffffff;
+                font-size: 25px;
+            }
+        }
+    }
+
+    .top-container {
+        height: 20%;
+        margin-top: 50px;
+        font-size: 40px;
+    }
+
+    .answer-list {
+        display: grid;
+        flex-direction: column;
+        // justify-content: space-between;
+        // height: 30vh;
+        padding-right: 130px;
         font-size: 25px;
-      }
-    }
-  }
 
-  .top-container {
-    height: 20%;
-    margin-top: 50px;
-    font-size: 40px;
-  }
-
-  .bottom-container {
-    padding-right: 130px;
-    font-size: 25px;
-  }
-
-  .answer-list {
-    display: flex;
-    height: 80px;
-
-    button {
-      display: flex;
-      align-items: center;
-      padding: 0;
-      border: none;
-      background-color: transparent;
-      outline: none;
-      cursor: pointer;
-
-      appearance: none;
-
-      &::before {
-        display: block;
-        width: 20px;
-        height: 20px;
-        margin-right: 10px;
-        border-radius: 50%;
-        background-color: #b39e7a;
-        content: "";
-      }
-
-      &:hover::before {
-        background-color: #6f5436;
-      }
+        gap: 16px;
     }
 
-    input {
-      display: none;
+    .answer-item {
+        display: flex;
+        // height: 80px;
+
+        button {
+            display: flex;
+            align-items: center;
+            padding: 0;
+            border: none;
+            background-color: transparent;
+            outline: none;
+            cursor: pointer;
+
+            appearance: none;
+
+            &::before {
+                display: block;
+                width: 20px;
+                height: 20px;
+                margin-right: 10px;
+                border-radius: 50%;
+                background-color: #b39e7a;
+                content: "";
+            }
+
+            &:hover::before {
+                background-color: #6f5436;
+            }
+        }
+
+        input {
+            display: none;
+        }
     }
-  }
 }
 
 // Result
 .result-wrapper {
-  background-image: url("../public/background-r.jpg");
+    background-image: url("../public/background-r.jpg");
 
-  li {
-    display: flex;
-    align-items: center;
-    padding: 0;
-    border: none;
-    background-color: transparent;
-    outline: none;
-    cursor: pointer;
+    li {
+        display: flex;
+        align-items: center;
+        padding: 0;
+        border: none;
+        background-color: transparent;
+        outline: none;
+        cursor: pointer;
 
-    appearance: none;
+        appearance: none;
 
-    &::before {
-      display: block;
-      width: 20px;
-      height: 20px;
-      margin-right: 10px;
-      border-radius: 50%;
-      background-color: #b39e7a;
-      content: "";
+        &::before {
+            display: block;
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            border-radius: 50%;
+            background-color: #b39e7a;
+            content: "";
+        }
     }
-  }
 }
 
 .retry-button {
-  position: absolute;
-  top: 90%;
-  left: 60%;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
+    position: absolute;
+    top: 90%;
+    left: 60%;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
 
-  a {
-    color: #ffffff;
-    font-size: 20px;
-    text-decoration: none;
-  }
+    a {
+        color: #ffffff;
+        font-size: 20px;
+        text-decoration: none;
+    }
 }
