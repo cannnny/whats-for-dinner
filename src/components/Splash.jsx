@@ -1,6 +1,7 @@
 import { React, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Animation from "./Animation";
+import "../stylesheets/splash.scss";
 
 // アプリを開いた時の初期画面
 // useEffect + setTimeout + useNavigate

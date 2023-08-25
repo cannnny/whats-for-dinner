@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useAtom } from "jotai";
 import { answer } from "./Atoms";
 import { client } from "./Client";
+import "../stylesheets/result.scss";
 
 const Result = () => {
   const [answerState, setAnswerState] = useAtom(answer);
@@ -26,12 +27,16 @@ const Result = () => {
 
   return (
     <div className="wrapper result-wrapper">
-      <div className="top-container">結果</div>
+      <div className="question-container">結果</div>
       <div className="bottom-container">
         {filteredData.length > 0 ? (
-          <ul className="result-list">
+          <ul className="list result-list">
             {filteredData.map((menu, index) => {
-              return <li key={index}>{menu.name}</li>;
+              return (
+                <li className="result-item" key={index}>
+                  {menu.name}
+                </li>
+              );
             })}
           </ul>
         ) : (
