@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./reset.css";
-import "./App.scss";
+import "./stylesheets/reset.css";
+import "./stylesheets/App.scss";
 import Splash from "./components/Splash";
-import QuestionPage from "./components/QuestionPage";
+import Question from "./components/Question";
 import Result from "./components/Result";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -14,7 +14,7 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route exact path="/" element={<Splash />} />
-        <Route path="/:id" element={<QuestionPage />} />
+        <Route path="/:id" element={<Question />} />
         <Route path="/result" element={<Result />} />
       </Routes>
     </BrowserRouter>

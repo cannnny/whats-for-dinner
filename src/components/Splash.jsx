@@ -1,6 +1,7 @@
 import { React, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Animation from "./Animation";
+import "../stylesheets/splash.scss";
 
 // アプリを開いた時の初期画面
 // useEffect + setTimeout + useNavigate
@@ -10,7 +11,7 @@ const Splash = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       navigate("1");
-    }, 5000);
+    }, 3000);
 
     return () => {
       clearTimeout(timer);

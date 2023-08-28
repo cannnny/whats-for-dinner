@@ -1,0 +1,38 @@
+.result-wrapper {
+  background-image: url("../../public/background-r.jpg");
+
+  .result-item {
+    display: flex;
+    align-items: center;
+    padding: 0;
+
+    &::before {
+      display: block;
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+      border-radius: 50%;
+      background-color: #b39e7a;
+      content: "";
+    }
+  }
+  p {
+    font-size: 20px;
+    text-align: center;
+  }
+}
+
+.retry-button {
+  position: absolute;
+  top: 90%;
+  left: 60%;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+
+  a {
+    color: #ffffff;
+    font-size: 20px;
+    text-decoration: none;
+  }
+}
