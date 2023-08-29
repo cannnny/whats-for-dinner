@@ -21,7 +21,6 @@ const Result = () => {
       })
       .then((res) => {
         setFilteredData(res.contents);
-        console.log(res.contents);
       });
   }, [answersArray]);
 
