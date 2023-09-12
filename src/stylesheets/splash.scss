@@ -1,3 +1,7 @@
+$pale-color: #fcecd6;
+$middle-color: #b39e7a;
+$deep-color: #6f5436;
+
 // Splash
 .splash {
   display: flex;
@@ -7,7 +11,7 @@
   transform: translateX(0%);
   width: 100vw;
   height: 100vh;
-  background-color: #b39e7a;
+  background-color: $middle-color;
   animation: fadeIn 1s forwards;
 
   h1 {
