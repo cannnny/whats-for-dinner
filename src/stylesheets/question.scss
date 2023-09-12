@@ -7,6 +7,7 @@ $deep-color: #6f5436;
   flex-direction: column;
   width: 100%;
   height: 100vh;
+  overflow: scroll;
   background-image: url("../../public/background.png");
   background-position: center center;
   background-size: cover;
