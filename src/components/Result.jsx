@@ -43,7 +43,7 @@ const Result = () => {
         )}
       </div>
       <button className="retry-button">
-        <Link to="/1">←最初から</Link>
+        <Link to="/Home">←最初から</Link>
       </button>
     </div>
   );
