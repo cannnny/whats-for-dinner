@@ -10,7 +10,7 @@ const Splash = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigate("1");
+      navigate("/home");
     }, 3000);
 
     return () => {
@@ -20,8 +20,10 @@ const Splash = () => {
 
   return (
     <Animation initialAnimation={false}>
-      <h1>きょう何食べる？</h1>
-      <img src="./dinner.jpg" alt="" />
+      <div className="splash">
+        <h1>きょう何食べる？</h1>
+        <img src="./dinner.jpg" alt="" />
+      </div>
     </Animation>
   );
 };

@@ -1,36 +1,51 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useAtom } from "jotai";
-import { answer } from "./Atoms";
 import { client } from "./Client";
 import "../stylesheets/result.scss";
 
-const Result = () => {
-  const [answerState, setAnswerState] = useAtom(answer);
-  const answersArray = Object.values(answerState);
-  const [filteredData, setFilteredData] = useState([]);
+const ResultRandom = () => {
+  const [data, setData] = useState([]);
+
+  function getRandomUniqueData(data) {
+    const count = 3;
+    const min = 0;
+    const max = data.length - 1;
+
+    if (count > max - min + 1 || max < min) {
+      throw new Error("Invalid input range or count");
+    }
+
+    const uniqueDatas = new Set();
+
+    while (uniqueDatas.size < count) {
+      const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+      uniqueDatas.add(data[randomNumber]);
+    }
+
+    return Array.from(uniqueDatas);
+  }
 
   useEffect(() => {
     client
       .get({
         endpoint: "results",
         queries: {
-          // limit: 3,
-          filters: `category[contains]${answersArray[0]}[and]material[contains]${answersArray[1]}[and]feeling[contains]${answersArray[2]}`,
+          limit: 99,
         },
       })
       .then((res) => {
-        setFilteredData(res.contents);
+        const randomData = getRandomUniqueData(res.contents);
+        setData(randomData);
       });
-  }, [answersArray]);
+  }, []);
 
   return (
     <div className="wrapper result-wrapper">
       <div className="question-container">結果</div>
       <div className="bottom-container">
-        {filteredData.length > 0 ? (
+        {data.length > 0 ? (
           <ul className="list result-list">
-            {filteredData.map((menu, index) => {
+            {data.map((menu, index) => {
               return (
                 <li className="result-item" key={index}>
                   {menu.name}
@@ -49,4 +64,4 @@ const Result = () => {
   );
 };
 
-export default Result;
+export default ResultRandom;

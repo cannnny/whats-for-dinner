@@ -8,6 +8,7 @@ import "../stylesheets/question.scss";
 
 const getData = await client.get({
   endpoint: "results",
+  queries: { limit: 99 },
 });
 
 const Question = () => {
