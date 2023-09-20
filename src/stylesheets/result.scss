@@ -1,6 +1,4 @@
-$pale-color: #fcecd6;
-$middle-color: #b39e7a;
-$deep-color: #6f5436;
+@use "variables";
 
 .result-wrapper {
   background-image: url("../../public/background-result.png");
@@ -16,7 +14,7 @@ $deep-color: #6f5436;
       height: 20px;
       margin-right: 10px;
       border-radius: 50%;
-      background-color: $middle-color;
+      background-color: variables.$middle-color;
       content: "";
     }
   }

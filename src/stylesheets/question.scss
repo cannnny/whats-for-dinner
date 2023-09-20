@@ -1,6 +1,4 @@
-$pale-color: #fcecd6;
-$middle-color: #b39e7a;
-$deep-color: #6f5436;
+@use "variables";
 
 .wrapper {
   display: flex;
@@ -40,7 +38,7 @@ $deep-color: #6f5436;
       &.active {
         width: 50px;
         height: 50px;
-        background-color: $middle-color;
+        background-color: variables.$middle-color;
         color: #ffffff;
         font-size: 25px;
       }
@@ -82,12 +80,12 @@ $deep-color: #6f5436;
         height: 20px;
         margin-right: 10px;
         border-radius: 50%;
-        background-color: $middle-color;
+        background-color: variables.$middle-color;
         content: "";
       }
 
       &:hover::before {
-        background-color: $deep-color;
+        background-color: variables.$deep-color;
       }
     }
 

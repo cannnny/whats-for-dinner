@@ -1,6 +1,4 @@
-$pale-color: #fcecd6;
-$middle-color: #b39e7a;
-$deep-color: #6f5436;
+@use "variables";
 
 // Splash
 .splash {
@@ -11,7 +9,7 @@ $deep-color: #6f5436;
   transform: translateX(0%);
   width: 100vw;
   height: 100vh;
-  background-color: $middle-color;
+  background-color: variables.$middle-color;
   animation: fadeIn 1s forwards;
 
   h1 {

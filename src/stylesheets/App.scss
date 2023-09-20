@@ -1,9 +1,7 @@
+@use "variables";
 @import url("https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap");
-$pale-color: #fcecd6;
-$middle-color: #b39e7a;
-$deep-color: #6f5436;
 
 * {
-  color: $deep-color;
+  color: variables.$deep-color;
   font-family: "Zen Maru Gothic", sans-serif;
 }
