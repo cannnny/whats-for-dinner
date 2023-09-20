@@ -82,23 +82,34 @@ const Question = () => {
   return (
     <Animation initialAnimation={{ x: "100%" }}>
       <div className="wrapper">
-        <div>
-          <ul className="progressbar">
-            {/* クラスを付け替える　*/}
-            {steps.map((step, index) => {
-              return (
-                <li
-                  className={`step ${step === pageData.id ? "active" : ""}`}
-                  key={index}
-                >
-                  {step}
-                </li>
-              );
-            })}
-          </ul>
-        </div>
+        <ul className="progressbar">
+          {/* クラスを付け替える　*/}
+          {steps.map((step, index) => {
+            return (
+              <li
+                className={`step ${step === pageData.id ? "active" : ""}`}
+                key={index}
+              >
+                {step}
+              </li>
+            );
+          })}
+        </ul>
         <div className="question-container">
           <p>今の気分は？</p>
+        </div>
+        <div className="question-wave">
+          <svg
+            data-name="Layer 1"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1200 120"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
+              className="shape-fill"
+            ></path>
+          </svg>
         </div>
         <div className="list answer-list">
           {pageData.content.map((select, index) => {
