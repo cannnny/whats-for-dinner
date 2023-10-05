@@ -17,8 +17,11 @@ const Question = () => {
   // 選択されたものをResultコンポーネントに渡す（ジャンル、食材、気分）
   // 進捗バーをクリックすることで前のページに戻る
   // 読み込むたびにアニメーション
+
+  // microCMSからデータ取得
   const data = getData.contents;
 
+  // 取得した選択肢が単数(文字列)か複数(配列)かで場合分け
   const uniqueCategories = new Set();
   data.forEach((item) => {
     if (typeof item.category === "string") {
@@ -27,7 +30,6 @@ const Question = () => {
       item.category.map((category) => uniqueCategories.add(category));
     }
   });
-
   const categoryArray = Array.from(uniqueCategories);
 
   const uniqueMaterials = new Set();
@@ -38,7 +40,6 @@ const Question = () => {
       item.material.map((material) => uniqueMaterials.add(material));
     }
   });
-
   const materialArray = Array.from(uniqueMaterials);
 
   const uniqueFeelings = new Set();
@@ -49,7 +50,6 @@ const Question = () => {
       item.feeling.map((feeling) => uniqueFeelings.add(feeling));
     }
   });
-
   const feelingArray = Array.from(uniqueFeelings);
 
   const questions = [
