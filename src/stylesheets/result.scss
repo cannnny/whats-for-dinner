@@ -26,14 +26,6 @@
     .shape-fill {
       fill: variables.$middle-color;
     }
-
-    /** For mobile devices **/
-    @media (max-width: 767px) {
-      .custom-shape-divider-bottom-1695191925 svg {
-        width: calc(165% + 1.3px);
-        height: 216px;
-      }
-    }
   }
 
   .result-item {
