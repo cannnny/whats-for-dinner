@@ -17,7 +17,7 @@ const Result = () => {
       .get({
         endpoint: "results",
         queries: {
-          // limit: 3,
+          limit: 3,
           filters: `category[contains]${answersArray[0]}[and]material[contains]${answersArray[1]}[and]feeling[contains]${answersArray[2]}`,
         },
       })
