@@ -1,7 +1,6 @@
 @use "variables";
 
 .result-wrapper {
-  // background-image: url("../../public/background-result.png");
   background-color: variables.$pale-color;
 
   .bottom-container {
@@ -38,19 +37,19 @@
   }
 
   .result-item {
+    z-index: 10;
     display: flex;
     align-items: center;
     padding: 0;
-    z-index: 10;
 
     &::before {
       display: block;
       width: 20px;
       height: 20px;
       margin-right: 10px;
-      border-radius: 50%;
-      background-color: variables.$middle-color;
       content: "";
+      background-color: variables.$middle-color;
+      border-radius: 50%;
     }
   }
 
@@ -64,14 +63,14 @@
   position: absolute;
   top: 90%;
   left: 60%;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
   z-index: 10;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
 
   a {
-    color: #ffffff;
     font-size: 20px;
+    color: #fff;
     text-decoration: none;
   }
 }

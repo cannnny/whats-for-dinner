@@ -29,4 +29,3 @@ const Splash = () => {
 };
 
 export default Splash;
-// 入りと終わりにアニメーションをつける

@@ -6,22 +6,16 @@ import { answer } from "./Atoms";
 import { client } from "./Client";
 import "../stylesheets/question.scss";
 
+// microCMSから選択肢のデータを取得
 const getData = await client.get({
   endpoint: "results",
   queries: { limit: 99 },
 });
 
 const Question = () => {
-  // 画面上に質問、画面下にラジオボタン選択肢（=MicroCMSのタグ）
-  // ページごとに選択肢を配列として入れておいて渡す？
-  // 選択されたものをResultコンポーネントに渡す（ジャンル、食材、気分）
-  // 進捗バーをクリックすることで前のページに戻る
-  // 読み込むたびにアニメーション
-
-  // microCMSからデータ取得
   const data = getData.contents;
 
-  // 取得した選択肢が単数(文字列)か複数(配列)かで場合分け
+  // 取得した選択肢の「カテゴリー」が単数(文字列)か複数(配列)かで場合分け
   const uniqueCategories = new Set();
   data.forEach((item) => {
     if (typeof item.category === "string") {
@@ -32,6 +26,7 @@ const Question = () => {
   });
   const categoryArray = Array.from(uniqueCategories);
 
+  // 取得した選択肢の「材料」が単数(文字列)か複数(配列)かで場合分け
   const uniqueMaterials = new Set();
   data.forEach((item) => {
     if (typeof item.material === "string") {
@@ -42,6 +37,7 @@ const Question = () => {
   });
   const materialArray = Array.from(uniqueMaterials);
 
+  // 取得した選択肢にタグ付けされている「気分」が単数(文字列)か複数(配列)かで場合分け
   const uniqueFeelings = new Set();
   data.forEach((item) => {
     if (typeof item.feeling === "string") {
@@ -52,17 +48,21 @@ const Question = () => {
   });
   const feelingArray = Array.from(uniqueFeelings);
 
+  // ページごとに内容を設定
   const questions = [
     { id: 1, content: categoryArray },
     { id: 2, content: materialArray },
     { id: 3, content: feelingArray },
   ];
 
+  // ページのURLに対応した内容をpageDataとしてセット
   const { id } = useParams();
   const pageData = questions.find((item) => item.id === Number(id));
 
+  // 選択された答えをセットするstateを用意
   const [answerState, setAnswerState] = useAtom(answer);
 
+  // 選択肢をクリックしたらanswerStateに答えをセットし、次のページへ(最終ページの場合は結果画面へ)
   const navigate = useNavigate();
   const nextPage = (selectedAnswer) => {
     setAnswerState((prev) => ({
@@ -77,6 +77,7 @@ const Question = () => {
     }
   };
 
+  // プログレスバー用配列
   const steps = [1, 2, 3];
 
   return (

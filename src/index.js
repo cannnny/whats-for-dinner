@@ -1,13 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./stylesheets/reset.css";
-import "./stylesheets/App.scss";
+
 import Splash from "./components/Splash";
 import Home from "./components/Home";
 import Question from "./components/Question";
 import Result from "./components/Result";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ResultRandom from "./components/ResultRandom";
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import "./stylesheets/reset.css";
+import "./stylesheets/App.scss";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 

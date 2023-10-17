@@ -1,6 +1,7 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
+// 右から左に画面が流れるアニメーション
 const Animation = ({ children, initialAnimation }) => {
   return (
     <AnimatePresence>

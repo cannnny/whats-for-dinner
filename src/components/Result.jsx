@@ -6,10 +6,12 @@ import { client } from "./Client";
 import "../stylesheets/result.scss";
 
 const Result = () => {
+  // 選択された答えをセットするstateを用意
   const [answerState, setAnswerState] = useAtom(answer);
   const answersArray = Object.values(answerState);
   const [filteredData, setFilteredData] = useState([]);
 
+  // microCMSからデータを取得(選択肢に応じてフィルターをかける)
   useEffect(() => {
     client
       .get({
