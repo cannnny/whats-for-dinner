@@ -9,24 +9,23 @@
 
   .progressbar {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 30px;
-
     gap: 25px;
+    align-items: center;
+    justify-content: center;
     padding-inline-start: 0;
+    padding-top: 30px;
     background-color: variables.$pale-color;
 
     li {
       display: flex;
-      justify-content: center;
       align-items: center;
-      list-style: none;
+      justify-content: center;
       width: 10px;
       height: 10px;
-      border-radius: 50%;
-      background-color: #ffffff;
       font-size: 20px;
+      list-style: none;
+      background-color: #fff;
+      border-radius: 50%;
 
       &.step {
         width: 40px;
@@ -36,9 +35,9 @@
       &.active {
         width: 50px;
         height: 50px;
-        background-color: variables.$middle-color;
-        color: #ffffff;
         font-size: 25px;
+        color: #fff;
+        background-color: variables.$middle-color;
       }
     }
   }
@@ -77,35 +76,34 @@
   .list {
     display: flex;
     flex-direction: column;
-    padding: 0 25%;
-    font-size: 25px;
-
     gap: 16px;
+    padding: 0 20%;
+    font-size: 25px;
   }
 
   .answer-list {
     margin-top: 5%;
   }
+
   .answer-item {
     button {
       display: flex;
       align-items: center;
       padding: 0;
-      border: none;
-      background-color: transparent;
-      outline: none;
-      cursor: pointer;
-
       appearance: none;
+      cursor: pointer;
+      background-color: transparent;
+      border: none;
+      outline: none;
 
       &::before {
         display: block;
         width: 20px;
         height: 20px;
         margin-right: 10px;
-        border-radius: 50%;
-        background-color: variables.$middle-color;
         content: "";
+        background-color: variables.$middle-color;
+        border-radius: 50%;
       }
 
       &:hover::before {
