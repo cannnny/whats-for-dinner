@@ -3,9 +3,11 @@ import { Link } from "react-router-dom";
 import { client } from "./Client";
 import "../stylesheets/result.scss";
 
+// おまかせを選択した場合のコンポーネント
 const ResultRandom = () => {
   const [data, setData] = useState([]);
 
+  // ランダムな数字を出力
   function getRandomUniqueData(data) {
     const count = 3;
     const min = 0;
@@ -25,6 +27,7 @@ const ResultRandom = () => {
     return Array.from(uniqueDatas);
   }
 
+  // microCMSからデータを取得
   useEffect(() => {
     client
       .get({
