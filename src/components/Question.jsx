@@ -50,8 +50,8 @@ const Question = () => {
 
   // ページごとに内容を設定
   const questions = [
-    { id: 1, content: categoryArray },
-    { id: 2, content: materialArray },
+    { id: 1, content: materialArray },
+    { id: 2, content: categoryArray },
     { id: 3, content: feelingArray },
   ];
 
