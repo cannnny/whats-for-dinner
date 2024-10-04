@@ -57,7 +57,7 @@ const Result = () => {
           <p>当てはまる料理はありません</p>
         )}
       </div>
-      <button className="button retry-button">
+      <button className="retry-button">
         <Link to="/Home">←最初から</Link>
       </button>
     </div>
