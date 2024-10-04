@@ -10,9 +10,9 @@ https://whats-for-dinner-etjbd6z2s-cannnny.vercel.app/
 <br>
 
 ## 動作確認済み環境
-* macOS Ventura 13.6.1
-* node v18.17.1
-* npm v9.6.7
+* macOS Sonoma v14.7
+* node v22.7.0
+* npm v10.8.2
 <br>
 
 ## ローカル開発環境の起動
