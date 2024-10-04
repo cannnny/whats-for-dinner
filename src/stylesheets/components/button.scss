@@ -72,8 +72,9 @@
 /* 最初に戻るボタン */
 .retry-button {
   position: absolute;
-  top: 90%;
-  left: 60%;
+  right: 20px;
+  bottom: 20px;
+  width: fit-content;
   z-index: 10;
   cursor: pointer;
   background-color: transparent;
@@ -86,6 +87,7 @@
   }
 
   &.--colored {
+    bottom: 40px;
     a {
       color: var.$deep-color;
     }
