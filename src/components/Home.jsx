@@ -27,16 +27,12 @@ const Home = () => {
         </div>
 
         <div className="button-container">
-          <button>
-            <Link to="/1">
-              <img src="btn-choice.png" alt="気分で選ぶ" />
-            </Link>
+          <button class="button --food">
+            <Link to="/1">食材で選ぶ</Link>
           </button>
 
-          <button>
-            <Link to="/result_random">
-              <img src="btn-random.png" alt="おまかせする" />
-            </Link>
+          <button class="button --random">
+            <Link to="/result_random">おまかせする</Link>
           </button>
         </div>
       </div>
