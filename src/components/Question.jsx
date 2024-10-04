@@ -77,25 +77,9 @@ const Question = () => {
     }
   };
 
-  // プログレスバー用配列
-  const steps = [1, 2];
-
   return (
     <Animation initialAnimation={{ x: "100%" }}>
       <div className="wrapper">
-        <ul className="progressbar">
-          {/* クラスを付け替える　*/}
-          {steps.map((step, index) => {
-            return (
-              <li
-                className={`step ${step === pageData.id ? "active" : ""}`}
-                key={index}
-              >
-                {step}
-              </li>
-            );
-          })}
-        </ul>
         <div className="question-container">
           <p>今の気分は？</p>
         </div>

@@ -11,46 +11,13 @@
   background-position: center center;
   background-size: cover;
 
-  .progressbar {
-    display: flex;
-    gap: 25px;
-    align-items: center;
-    justify-content: center;
-    padding-inline-start: 0;
-    padding-top: 30px;
-    background-color: var.$pale-color;
-
-    li {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 10px;
-      height: 10px;
-      font-size: 20px;
-      list-style: none;
-      background-color: #fff;
-      border-radius: 50%;
-
-      &.step {
-        width: 40px;
-        height: 40px;
-      }
-
-      &.active {
-        width: 50px;
-        height: 50px;
-        font-size: 25px;
-        color: #fff;
-        background-color: var.$middle-color;
-      }
-    }
-  }
-
   .question-container {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
     height: 15%;
-    padding-top: 50px;
+    padding-top: 20px;
     font-size: 40px;
     background-color: var.$pale-color;
 
@@ -80,7 +47,7 @@
   .list {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 20px;
     padding-left: 0;
     margin: 0 auto;
     font-size: 25px;
