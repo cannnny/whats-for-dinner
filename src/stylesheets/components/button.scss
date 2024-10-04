@@ -1,0 +1,95 @@
+//------------------------------------------------------------
+// 	button.scss
+// -----------------------------------------------------------
+@use "../helpers/variables" as var;
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  max-width: 300px;
+  margin: 120px auto;
+}
+
+.button {
+  /* 共通スタイル */
+  width: 300px;
+  height: 80px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  
+  > a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    font-size: 20px;
+    text-decoration: none;
+  }
+
+  &:hover {
+    background-color: #fff !important;
+    transition: all 0.3s;
+  }
+
+
+  /* 食材で選ぶボタン */
+  &.--food {
+    background-color: var.$middle-color;
+
+    &:hover {
+      border: 2px solid var.$middle-color;
+      
+      > a {
+        color: var.$middle-color;
+      }
+    }
+  }
+  /* おまかせボタン */
+  &.--random {
+    background-color: var.$deep-color;
+
+    &:hover {
+      border: 2px solid var.$deep-color;
+
+      > a {
+        color: var.$deep-color;
+      }
+    }
+  }
+
+  /* ボタンの間隔 */
+  & + .button {
+    margin-top: 80px;
+  }
+}
+
+/* 最初に戻るボタン */
+.retry-button {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  width: fit-content;
+  z-index: 10;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+
+  a {
+    font-size: 20px;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  &.--colored {
+    bottom: 40px;
+    a {
+      color: var.$deep-color;
+    }
+  }
+}

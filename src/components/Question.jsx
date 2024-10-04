@@ -1,10 +1,11 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useAtom } from "jotai";
 import Animation from "./Animation";
 import { answer } from "./Atoms";
 import { client } from "./Client";
-import "../stylesheets/question.scss";
+import "../stylesheets/style.scss";
 
 // microCMSから選択肢のデータを取得
 const getData = await client.get({
@@ -16,15 +17,15 @@ const Question = () => {
   const data = getData.contents;
 
   // 取得した選択肢の「カテゴリー」が単数(文字列)か複数(配列)かで場合分け
-  const uniqueCategories = new Set();
-  data.forEach((item) => {
-    if (typeof item.category === "string") {
-      uniqueCategories.add(item.category);
-    } else if (Array.isArray(item.category)) {
-      item.category.map((category) => uniqueCategories.add(category));
-    }
-  });
-  const categoryArray = Array.from(uniqueCategories);
+  // const uniqueCategories = new Set();
+  // data.forEach((item) => {
+  //   if (typeof item.category === "string") {
+  //     uniqueCategories.add(item.category);
+  //   } else if (Array.isArray(item.category)) {
+  //     item.category.map((category) => uniqueCategories.add(category));
+  //   }
+  // });
+  // const categoryArray = Array.from(uniqueCategories);
 
   // 取得した選択肢の「材料」が単数(文字列)か複数(配列)かで場合分け
   const uniqueMaterials = new Set();
@@ -50,9 +51,8 @@ const Question = () => {
 
   // ページごとに内容を設定
   const questions = [
-    { id: 1, content: categoryArray },
-    { id: 2, content: materialArray },
-    { id: 3, content: feelingArray },
+    { id: 1, content: materialArray },
+    { id: 2, content: feelingArray },
   ];
 
   // ページのURLに対応した内容をpageDataとしてセット
@@ -70,32 +70,16 @@ const Question = () => {
       [`answer${pageData.id}`]: selectedAnswer,
     }));
 
-    if (pageData.id !== 3) {
+    if (pageData.id !== 2) {
       navigate(`/${Number(id) + 1}`);
     } else {
       navigate("/result");
     }
   };
 
-  // プログレスバー用配列
-  const steps = [1, 2, 3];
-
   return (
     <Animation initialAnimation={{ x: "100%" }}>
       <div className="wrapper">
-        <ul className="progressbar">
-          {/* クラスを付け替える　*/}
-          {steps.map((step, index) => {
-            return (
-              <li
-                className={`step ${step === pageData.id ? "active" : ""}`}
-                key={index}
-              >
-                {step}
-              </li>
-            );
-          })}
-        </ul>
         <div className="question-container">
           <p>今の気分は？</p>
         </div>
@@ -127,6 +111,9 @@ const Question = () => {
             );
           })}
         </div>
+        <button className="retry-button --colored">
+          <Link to="/Home">←最初に戻る</Link>
+        </button>
       </div>
     </Animation>
   );

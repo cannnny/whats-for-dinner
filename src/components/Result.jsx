@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useAtom } from "jotai";
 import { answer } from "./Atoms";
 import { client } from "./Client";
-import "../stylesheets/result.scss";
+import "../stylesheets/style.scss";
 
 const Result = () => {
   // 選択された答えをセットするstateを用意
@@ -18,7 +18,7 @@ const Result = () => {
         endpoint: "results",
         queries: {
           limit: 3,
-          filters: `category[contains]${answersArray[0]}[and]material[contains]${answersArray[1]}[and]feeling[contains]${answersArray[2]}`,
+          filters: `material[contains]${answersArray[0]}[and]feeling[contains]${answersArray[1]}`,
         },
       })
       .then((res) => {
@@ -49,6 +49,9 @@ const Result = () => {
               return (
                 <li className="result-item" key={index}>
                   {menu.name}
+                  <div className="accordion">
+                    <p>材料：{menu.ingredients.join(", ")}</p>
+                  </div>
                 </li>
               );
             })}

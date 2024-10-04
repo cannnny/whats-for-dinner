@@ -9,8 +9,7 @@ import ResultRandom from "./components/ResultRandom";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import "./stylesheets/reset.css";
-import "./stylesheets/App.scss";
+import "./stylesheets/base/reset.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 

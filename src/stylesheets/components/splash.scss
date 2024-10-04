@@ -1,4 +1,7 @@
-@use "variables";
+//------------------------------------------------------------
+// 	splash.scss
+// -----------------------------------------------------------
+@use "../helpers/variables" as var;
 
 .splash {
   position: relative;
@@ -7,7 +10,7 @@
   justify-content: center;
   width: 100vw;
   height: 100vh;
-  background-color: variables.$middle-color;
+  background-color: var.$middle-color;
   transform: translateX(0%);
   animation: fadeIn 1s forwards;
 

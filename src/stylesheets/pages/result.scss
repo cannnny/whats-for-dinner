@@ -1,10 +1,17 @@
-@use "variables";
+//------------------------------------------------------------
+// 	result.scss
+// -----------------------------------------------------------
+@use "../helpers/variables" as var;
 
 .result-wrapper {
-  background-color: variables.$pale-color;
+  background-color: var.$pale-color;
 
   .bottom-container {
     padding-top: 50px;
+  }
+
+  .result-list {
+    width: 300px;
   }
 
   .result-wave {
@@ -24,45 +31,32 @@
     }
 
     .shape-fill {
-      fill: variables.$middle-color;
+      fill: var.$middle-color;
     }
   }
 
   .result-item {
-    z-index: 10;
-    display: flex;
-    align-items: center;
+    position: relative;
+    display: inline-block;
     padding: 0;
+    z-index: 10;
 
     &::before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: -30px;
       display: block;
       width: 20px;
       height: 20px;
-      margin-right: 10px;
-      content: "";
-      background-color: variables.$middle-color;
+      background-color: var.$middle-color;
       border-radius: 50%;
     }
   }
 
   p {
-    font-size: 20px;
-    text-align: center;
+    font-size: 18px;
   }
 }
 
-.retry-button {
-  position: absolute;
-  top: 90%;
-  left: 60%;
-  z-index: 10;
-  cursor: pointer;
-  background-color: transparent;
-  border: none;
 
-  a {
-    font-size: 20px;
-    color: #fff;
-    text-decoration: none;
-  }
-}
