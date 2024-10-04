@@ -49,6 +49,9 @@ const Result = () => {
               return (
                 <li className="result-item" key={index}>
                   {menu.name}
+                  <div className="accordion">
+                    <p>材料：{menu.ingredients.join(", ")}</p>
+                  </div>
                 </li>
               );
             })}
