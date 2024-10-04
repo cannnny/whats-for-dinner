@@ -52,6 +52,7 @@ const ResultRandom = () => {
               return (
                 <li className="result-item" key={index}>
                   {menu.name}
+                  <p>材料：{menu.ingredients.join(", ")}</p>
                 </li>
               );
             })}
