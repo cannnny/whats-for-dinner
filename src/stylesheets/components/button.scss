@@ -1,40 +1,7 @@
-@use "variables";
-
-.home {
-  width: 100%;
-  height: 100vh;
-}
-
-.logo-container {
-  position: relative;
-  background-color: variables.$middle-color;
-
-  .logo {
-    padding: 30px 0;
-    color: #ffffff;
-    font-size: 30px;
-    text-align: center;
-  }
-
-  .wave {
-    position: absolute;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-
-    svg {
-      display: block;
-      position: relative;
-      width: calc(100% + 1.3px);
-      height: 82px;
-    }
-
-    .shape-fill {
-      fill: variables.$middle-color;
-    }
-  }
-}
+//------------------------------------------------------------
+// 	button.scss
+// -----------------------------------------------------------
+@use "../helpers/variables" as var;
 
 .button-container {
   display: flex;
@@ -73,25 +40,25 @@
 
   /* 食材で選ぶボタン */
   &.--food {
-    background-color: variables.$middle-color;
+    background-color: var.$middle-color;
 
     &:hover {
-      border: 2px solid variables.$middle-color;
+      border: 2px solid var.$middle-color;
       
       > a {
-        color: variables.$middle-color;
+        color: var.$middle-color;
       }
     }
   }
   /* おまかせボタン */
   &.--random {
-    background-color: variables.$deep-color;
+    background-color: var.$deep-color;
 
     &:hover {
-      border: 2px solid variables.$deep-color;
+      border: 2px solid var.$deep-color;
 
       > a {
-        color: variables.$deep-color;
+        color: var.$deep-color;
       }
     }
   }
@@ -99,5 +66,28 @@
   /* ボタンの間隔 */
   & + .button {
     margin-top: 80px;
+  }
+}
+
+/* 最初に戻るボタン */
+.retry-button {
+  position: absolute;
+  top: 90%;
+  left: 60%;
+  z-index: 10;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+
+  a {
+    font-size: 20px;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  &.--colored {
+    a {
+      color: var.$deep-color;
+    }
   }
 }

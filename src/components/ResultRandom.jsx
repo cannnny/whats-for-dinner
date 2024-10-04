@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { client } from "./Client";
-import "../stylesheets/result.scss";
+import "../stylesheets/style.scss";
 
 // おまかせを選択した場合のコンポーネント
 const ResultRandom = () => {

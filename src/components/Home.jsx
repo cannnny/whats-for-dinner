@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 import Animation from "./Animation";
 
-import "../stylesheets/home.scss";
+import "../stylesheets/style.scss";
 
 const Home = () => {
   return (

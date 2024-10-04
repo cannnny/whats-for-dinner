@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useAtom } from "jotai";
 import { answer } from "./Atoms";
 import { client } from "./Client";
-import "../stylesheets/result.scss";
+import "../stylesheets/style.scss";
 
 const Result = () => {
   // 選択された答えをセットするstateを用意
@@ -57,7 +57,7 @@ const Result = () => {
           <p>当てはまる料理はありません</p>
         )}
       </div>
-      <button className="retry-button">
+      <button className="button retry-button">
         <Link to="/Home">←最初から</Link>
       </button>
     </div>

@@ -1,10 +1,11 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useAtom } from "jotai";
 import Animation from "./Animation";
 import { answer } from "./Atoms";
 import { client } from "./Client";
-import "../stylesheets/question.scss";
+import "../stylesheets/style.scss";
 
 // microCMSから選択肢のデータを取得
 const getData = await client.get({
@@ -127,6 +128,9 @@ const Question = () => {
             );
           })}
         </div>
+        <button className="retry-button --colored">
+          <Link to="/Home">←最初に戻る</Link>
+        </button>
       </div>
     </Animation>
   );

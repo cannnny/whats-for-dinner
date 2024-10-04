@@ -1,12 +1,12 @@
 //------------------------------------------------------------
 // 	question.scss
 // -----------------------------------------------------------
-@use "variables";
+@use "../helpers/variables" as var;
 
 .wrapper {
   width: 100%;
   height: 100vh;
-  overflow: scroll;
+  overflow: hidden;
   background-position: center center;
   background-size: cover;
 
@@ -17,7 +17,7 @@
     justify-content: center;
     padding-inline-start: 0;
     padding-top: 30px;
-    background-color: variables.$pale-color;
+    background-color: var.$pale-color;
 
     li {
       display: flex;
@@ -40,7 +40,7 @@
         height: 50px;
         font-size: 25px;
         color: #fff;
-        background-color: variables.$middle-color;
+        background-color: var.$middle-color;
       }
     }
   }
@@ -51,7 +51,7 @@
     height: 15%;
     padding-top: 50px;
     font-size: 40px;
-    background-color: variables.$pale-color;
+    background-color: var.$pale-color;
 
     p {
       z-index: 1;
@@ -72,7 +72,7 @@
     }
 
     .shape-fill {
-      fill: variables.$pale-color;
+      fill: var.$pale-color;
     }
   }
 
@@ -80,14 +80,14 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
-    width: 250px;
     padding-left: 0;
     margin: 0 auto;
     font-size: 25px;
   }
-
+  
   .answer-list {
     margin-top: 5%;
+    max-width: 130px;
   }
 
   .answer-item {
@@ -107,12 +107,13 @@
         height: 20px;
         margin-right: 10px;
         content: "";
-        background-color: variables.$middle-color;
+        background-color: var.$middle-color;
         border-radius: 50%;
       }
 
       &:hover::before {
-        background-color: variables.$deep-color;
+        background-color: var.$deep-color;
+        transition: all 0.3s;
       }
     }
 
