@@ -18,7 +18,7 @@ const Result = () => {
         endpoint: "results",
         queries: {
           limit: 3,
-          filters: `material[contains]${answersArray[0]}[and]category[contains]${answersArray[1]}[and]feeling[contains]${answersArray[2]}`,
+          filters: `material[contains]${answersArray[0]}[and]feeling[contains]${answersArray[1]}`,
         },
       })
       .then((res) => {

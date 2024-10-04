@@ -17,15 +17,15 @@ const Question = () => {
   const data = getData.contents;
 
   // 取得した選択肢の「カテゴリー」が単数(文字列)か複数(配列)かで場合分け
-  const uniqueCategories = new Set();
-  data.forEach((item) => {
-    if (typeof item.category === "string") {
-      uniqueCategories.add(item.category);
-    } else if (Array.isArray(item.category)) {
-      item.category.map((category) => uniqueCategories.add(category));
-    }
-  });
-  const categoryArray = Array.from(uniqueCategories);
+  // const uniqueCategories = new Set();
+  // data.forEach((item) => {
+  //   if (typeof item.category === "string") {
+  //     uniqueCategories.add(item.category);
+  //   } else if (Array.isArray(item.category)) {
+  //     item.category.map((category) => uniqueCategories.add(category));
+  //   }
+  // });
+  // const categoryArray = Array.from(uniqueCategories);
 
   // 取得した選択肢の「材料」が単数(文字列)か複数(配列)かで場合分け
   const uniqueMaterials = new Set();
@@ -52,8 +52,7 @@ const Question = () => {
   // ページごとに内容を設定
   const questions = [
     { id: 1, content: materialArray },
-    { id: 2, content: categoryArray },
-    { id: 3, content: feelingArray },
+    { id: 2, content: feelingArray },
   ];
 
   // ページのURLに対応した内容をpageDataとしてセット
@@ -71,7 +70,7 @@ const Question = () => {
       [`answer${pageData.id}`]: selectedAnswer,
     }));
 
-    if (pageData.id !== 3) {
+    if (pageData.id !== 2) {
       navigate(`/${Number(id) + 1}`);
     } else {
       navigate("/result");
@@ -79,7 +78,7 @@ const Question = () => {
   };
 
   // プログレスバー用配列
-  const steps = [1, 2, 3];
+  const steps = [1, 2];
 
   return (
     <Animation initialAnimation={{ x: "100%" }}>
